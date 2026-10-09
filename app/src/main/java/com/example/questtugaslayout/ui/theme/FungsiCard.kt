@@ -6,6 +6,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -58,6 +59,13 @@ fun CardPertama(
                 fontSize = 17.sp,
                 fontWeight = FontWeight.Bold,
                 color = TextTitle
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = stringResource(id = subtitleRes),
+                fontSize = 14.sp,
+                color = TextSubtitle,
+                lineHeight = 20.sp
             )
         }
     }
