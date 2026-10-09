@@ -14,8 +14,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.questtugaslayout.ui.theme.QuestTugasLayoutTheme
 import com.example.questtugaslayout.ui.theme.CardPorto
 
@@ -45,7 +48,16 @@ fun MainScreen() {
             ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        item {
+            Text(
+                text = stringResource(id = R.string.header_title),
+                fontSize = 26.sp,
+                fontWeight = FontWeight.ExtraBold,
+                color = TextTitleColor,
+                modifier = Modifier.padding(horizontal = 20.dp)
+            )
 
+        }
     }
 }
 
