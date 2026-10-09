@@ -2,6 +2,10 @@ package com.example.questtugaslayout.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+val BackgroundApp = Color(0xFFF9FAFB)
+val CardWhite = Color(0xFFFFFFFF)
+val TextTitle = Color(0xFF111827)
+val TextSubtitle = Color(0xFF6B7280)
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
