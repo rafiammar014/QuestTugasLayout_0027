@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">QuestTugasLayout</string>
+    <string name="app_name">Tugas Compose</string>
+    <string name="header_title">Profil Mahasiswa</string>
+    <string name="header_subtitle">Universitas Muhammadiyah Yogyakarta</string>
+    <string name="card_title_identitas">Rafi Ammar Dinata</string>
+    <string name="card_desc_identitas">S1 Teknologi Informasi</string>
+    <string name="card_title_about">Tentang Saya</string>
+    <string name="card_desc_about">Mahasiswa IT yang antusias dalam pengembangan aplikasi Android dan UI/UX Design modern.</string>
+    <string name="card_title_skills">Keahlian Teknis</string>
+    <string name="card_desc_skills">Kotlin, Jetpack Compose, dan Material Design 3.</string>
+    <string name="card_title_contact">Domisili</string>
+    <string name="card_desc_contact">Tamantirto, Kasihan, Kab. Bantul</string>
 </resources>
