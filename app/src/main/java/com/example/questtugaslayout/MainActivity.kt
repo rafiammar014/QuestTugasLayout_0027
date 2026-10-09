@@ -71,7 +71,31 @@ fun MainScreen() {
             )
 
             Spacer(modifier = Modifier.height(32.dp))
+            item {
+                CardPorto(
+                    imageRes = R.drawable.ic_launcher_background, // Ganti dengan R.drawable.fotokamu jika ada
+                    titleRes = R.string.card_title_identitas,
+                    subtitleRes = R.string.card_desc_identitas
+                )
 
+                CardPorto(
+                    imageRes = R.drawable.ic_launcher_foreground,
+                    titleRes = R.string.card_title_about,
+                    subtitleRes = R.string.card_desc_about
+                )
+
+                CardPorto(
+                    imageRes = R.drawable.ic_launcher_background,
+                    titleRes = R.string.card_title_skills,
+                    subtitleRes = R.string.card_desc_skills
+                )
+
+                CardPorto(
+                    imageRes = R.drawable.ic_launcher_foreground,
+                    titleRes = R.string.card_title_contact,
+                    subtitleRes = R.string.card_desc_contact
+                )
+            }
         }
     }
 }
