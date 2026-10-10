@@ -15,11 +15,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,13 +32,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.questtugaslayout.ui.theme.QuestTugasLayoutTheme
 import com.example.questtugaslayout.ui.theme.CardPorto
+import com.example.questtugaslayout.ui.theme.QuestTugasLayoutTheme
 
-val BackgroundApp = Color(0xFFF9FAFB)
 val TextTitleColor = Color(0xFF111827)
 val TextSubtitleColor = Color(0xFF447CB9)
 
@@ -51,6 +51,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 @Composable
 fun SkillChip(@StringRes textRes: Int) {
     Box(
@@ -73,93 +74,126 @@ fun SkillChip(@StringRes textRes: Int) {
 
 @Composable
 fun MainScreen() {
-    Image(
-        painter = painterResource(id = R.drawable.background),
-        contentDescription = "Background App",
-        contentScale = ContentScale.Crop,
-        modifier = Modifier.fillMaxSize()
-    )
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
+    Box(modifier = Modifier.fillMaxSize()) {
+        Image(
+            painter = painterResource(id = R.drawable.background),
+            contentDescription = "Background App",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize()
+        )
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = 64.dp, bottom = 20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            item {
+                Text(
+                    text = stringResource(id = R.string.header_title),
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.ExtraBold,
+                    color = TextTitleColor,
+                    modifier = Modifier.padding(horizontal = 20.dp)
+                )
 
-            .padding(top = 64.dp, bottom = 20.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        item {
-            Text(
-                text = stringResource(id = R.string.header_title),
-                fontSize = 26.sp,
-                fontWeight = FontWeight.ExtraBold,
-                color = TextTitleColor,
-                modifier = Modifier.padding(horizontal = 20.dp)
-            )
+                Spacer(modifier = Modifier.height(4.dp))
 
-            Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = stringResource(id = R.string.header_subtitle),
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = TextSubtitleColor,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(horizontal = 20.dp)
+                )
 
-            Text(
-                text = stringResource(id = R.string.header_subtitle),
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Medium,
-                color = TextSubtitleColor,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(horizontal = 20.dp)
-            )
-
-            Spacer(modifier = Modifier.height(32.dp))
-        }
-
-        item {
-            CardPorto(
-                imageRes = R.drawable.profile,
-                titleRes = R.string.card_title_identitas,
-                subtitleRes = R.string.card_desc_identitas
-            )
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                // Jangan lupa tambahkan string-nya di strings.xml
-                SkillChip(textRes = R.string.skill_android) // misal: "Android"
-                SkillChip(textRes = R.string.skill_uiux)    // misal: "UI/UX & Canva"
-                SkillChip(textRes = R.string.skill_sport)   // misal: "Pencak Silat"
+                Spacer(modifier = Modifier.height(32.dp))
             }
 
-            CardPorto(
-                imageRes = R.drawable.profile2,
-                titleRes = R.string.card_title_about,
-                subtitleRes = R.string.card_desc_about
-            )
-
-            CardPorto(
-                imageRes = R.drawable.ic_launcher_background,
-                titleRes = R.string.card_title_skills,
-                subtitleRes = R.string.card_desc_skills
-            )
-
-            CardPorto(
-                imageRes = R.drawable.ic_launcher_foreground,
-                titleRes = R.string.card_title_contact,
-                subtitleRes = R.string.card_desc_contact
-            )
-            Spacer(modifier = Modifier.height(24.dp))
-
-            Button(
-                onClick = {},
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 20.dp)
-                    .height(56.dp),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = TextTitleColor)
-            ) {
-                Text(
-                    text = stringResource(id = R.string.btn_contact),
-                    color = Color.White,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
+            item {
+                CardPorto(
+                    imageRes = R.drawable.profile,
+                    titleRes = R.string.card_title_identitas,
+                    subtitleRes = R.string.card_desc_identitas
                 )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    SkillChip(textRes = R.string.skill_android)
+                    SkillChip(textRes = R.string.skill_uiux)
+                    SkillChip(textRes = R.string.skill_sport)
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                CardPorto(
+                    imageRes = R.drawable.profile2,
+                    titleRes = R.string.card_title_about,
+                    subtitleRes = R.string.card_desc_about
+                )
+
+                CardPorto(
+                    imageRes = R.drawable.ic_launcher_background,
+                    titleRes = R.string.card_title_skills,
+                    subtitleRes = R.string.card_desc_skills
+                )
+
+                CardPorto(
+                    imageRes = R.drawable.ic_launcher_foreground,
+                    titleRes = R.string.card_title_contact,
+                    subtitleRes = R.string.card_desc_contact
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Button(
+                    onClick = { },
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF447CB9)),
+                    shape = RoundedCornerShape(50),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 20.dp)
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.btn_contact),
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 16.sp,
+                        modifier = Modifier.padding(vertical = 4.dp)
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    IconButton(onClick = { }) {
+                        Image(
+                            painter = painterResource(id = R.drawable.gmail),
+                            contentDescription = "Gmail",
+                            modifier = Modifier.size(32.dp)
+                        )
+                    }
+                    Spacer(modifier = Modifier.width(16.dp))
+                    IconButton(onClick = { }) {
+                        Image(
+                            painter = painterResource(id = R.drawable.github),
+                            contentDescription = "GitHub",
+                            modifier = Modifier.size(32.dp)
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(24.dp))
             }
         }
     }
 }
+
