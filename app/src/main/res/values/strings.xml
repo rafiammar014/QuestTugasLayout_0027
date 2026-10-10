@@ -10,4 +10,5 @@
     <string name="card_desc_skills">Kotlin, Jetpack Compose, dan Material Design 3.</string>
     <string name="card_title_contact">Domisili</string>
     <string name="card_desc_contact">Tamantirto, Kasihan, Kab. Bantul</string>
+    <string name="btn_contact">Hubungi Saya</string>
 </resources>
