@@ -4,8 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -45,6 +49,25 @@ class MainActivity : ComponentActivity() {
                 MainScreen()
             }
         }
+    }
+}
+@Composable
+fun SkillChip(@StringRes textRes: Int) {
+    Box(
+        modifier = Modifier
+            .padding(end = 8.dp)
+            .background(
+                color = Color(0xFFE5E7EB), // Warna abu-abu background chip
+                shape = RoundedCornerShape(50) // Lengkungan penuh menyerupai pil
+            )
+            .padding(horizontal = 16.dp, vertical = 6.dp)
+    ) {
+        Text(
+            text = stringResource(id = textRes),
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Medium,
+            color = Color(0xFF374151) // Warna teks sedikit gelap
+        )
     }
 }
 
@@ -92,6 +115,15 @@ fun MainScreen() {
                 titleRes = R.string.card_title_identitas,
                 subtitleRes = R.string.card_desc_identitas
             )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                // Jangan lupa tambahkan string-nya di strings.xml
+                SkillChip(textRes = R.string.skill_android) // misal: "Android"
+                SkillChip(textRes = R.string.skill_uiux)    // misal: "UI/UX & Canva"
+                SkillChip(textRes = R.string.skill_sport)   // misal: "Pencak Silat"
+            }
 
             CardPorto(
                 imageRes = R.drawable.profile2,

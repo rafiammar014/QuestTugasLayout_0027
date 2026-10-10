@@ -11,4 +11,7 @@
     <string name="card_title_contact">Domisili</string>
     <string name="card_desc_contact">Tamantirto, Kasihan, Kab. Bantul</string>
     <string name="btn_contact">Hubungi Saya</string>
+    <string name="skill_android">Android</string>
+    <string name="skill_uiux">UI/UX dan Canva</string>
+    <string name="skill_sport">pencak silat</string>
 </resources>
